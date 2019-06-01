@@ -1,0 +1,4 @@
+
+# WeatherDisplay Requirements
+
+weather-api >= 1.0.7
