@@ -110,7 +110,7 @@ class DisplayScreen(Display):
         inkyphat.text((92, 58), "{}".format(pressure), inkyphat.WHITE, font=font)
 
         # Draw the current weather icon over the backdrop
-        if weather_icon is not None:
+        if self.weather is not None:
             inkyphat.paste(icons[icon_mapping[self.weather]], (28, 36), masks[icon_mapping[self.weather]])
 
         else:
