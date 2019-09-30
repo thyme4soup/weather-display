@@ -1,6 +1,6 @@
 
 from weather import Weather
-from displaygraphics import DisplayGraphics
+from displaypihat import DisplayPiHat
 from queue import Queue
 import geolocation
 import requests, json
@@ -8,7 +8,7 @@ import time
 
 lat, lon = geolocation.get_geo()
 weather = Weather(update_every=60, lat=lat, lon=lon)
-display = DisplayGraphics()
+display = DisplayPiHat()
 
 def updater():
     display.update(weather.get_temperature(), weather.get_weather())

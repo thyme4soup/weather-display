@@ -55,7 +55,7 @@ for icon in glob.glob("resources/icon-*.png"):
 # Load the built-in FredokaOne font
 font = ImageFont.truetype(inkyphat.fonts.FredokaOne, 22)
 
-class DisplayScreen(Display):
+class DisplayPiHat(Display):
     def __init__(self):
         Display.__init__(self)
 
@@ -98,7 +98,7 @@ class DisplayScreen(Display):
 
         # And now some text
 
-        datetime = time.strftime("%d/%m %H:%M")
+        datetime = time.strftime("%m/%d %H:%M")
 
         inkyphat.text((36, 12), datetime, inkyphat.WHITE, font=font)
 
@@ -124,7 +124,7 @@ class DisplayScreen(Display):
 
 if __name__ == "__main__":
 
-    display = DisplayScreen()
+    display = DisplayPiHat()
 
     display.update(75, "Partly Cloudy")
     display.update(75, "Clear")
