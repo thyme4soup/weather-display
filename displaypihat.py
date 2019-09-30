@@ -40,6 +40,18 @@ icon_mapping = {
     "Cloudy" : "icon-cloud.png"
 }
 
+icons = {}
+
+# Load our icon files and generate masks
+for icon in glob.glob("resources/icon-*.png"):
+    icon_name = icon.split("icon-")[1].replace(".png", "")
+    icon_image = Image.open(icon)
+    icons[icon_name] = icon_image
+    masks[icon_name] = inkyphat.create_mask(icon_image)
+
+# Load the built-in FredokaOne font
+font = ImageFont.truetype(inkyphat.fonts.FredokaOne, 22)
+
 class DisplayScreen(Display):
     def __init__(self):
         Display.__init__(self)
@@ -71,16 +83,6 @@ class DisplayScreen(Display):
             print('Defaulting to "red"')
 
         inkyphat.set_border(inkyphat.BLACK)
-
-        # Load our icon files and generate masks
-        for icon in glob.glob("resources/icon-*.png"):
-            icon_name = icon.split("icon-")[1].replace(".png", "")
-            icon_image = Image.open(icon)
-            icons[icon_name] = icon_image
-            masks[icon_name] = inkyphat.create_mask(icon_image)
-
-        # Load the built-in FredokaOne font
-        font = ImageFont.truetype(inkyphat.fonts.FredokaOne, 22)
 
         # Load our backdrop image
         inkyphat.set_image("resources/backdrop.png")
