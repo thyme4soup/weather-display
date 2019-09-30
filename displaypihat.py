@@ -31,13 +31,13 @@ weather_mapping = {
     "Cloudy" : 6
 }
 icon_mapping = {
-    "Thunder" : "icon-storm.png",
-    "Rain" : "icon-rain.png",
-    "Snow" : "icon-snow.png",
-    "Fog" : "icon-cloud.png",
-    "Clear" : "icon-sun.png",
-    "Partly Cloudy" : "icon-cloud.png",
-    "Cloudy" : "icon-cloud.png"
+    "Thunder" : "storm",
+    "Rain" : "rain",
+    "Snow" : "snow",
+    "Fog" : "cloud",
+    "Clear" : "sun",
+    "Partly Cloudy" : "cloud",
+    "Cloudy" : "cloud"
 }
 
 icons = {}
