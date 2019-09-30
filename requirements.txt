@@ -2,3 +2,5 @@
 # WeatherDisplay Requirements
 
 weather-api >= 1.0.7
+requests >= 2.22
+Pillow >= 2.2.2
