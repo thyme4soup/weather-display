@@ -43,6 +43,7 @@ icon_mapping = {
 icons = {}
 masks = {}
 WARNING_TEMP = 80
+pressure = 0
 
 # Load our icon files and generate masks
 for icon in glob.glob("resources/icon-*.png"):
