@@ -15,22 +15,6 @@ except ImportError:
 
 import inkyphat
 
-pressure = 0
-temperature = 0
-weather_icon = None
-
-if "channel" in weather["query"]["results"]:
-    results = weather["query"]["results"]["channel"]
-    pressure = results["atmosphere"]["pressure"]
-    temperature = (int(results["item"]["forecast"][0]["high"]) - 32) * .5556
-    code = int(results["item"]["forecast"][0]["code"])
-
-    for icon in icon_map:
-        if code in icon_map[icon]:
-            weather_icon = icon
-            break
-
-
 #import lixie as lix
 import math
 from displaybase import Display
