@@ -55,7 +55,7 @@ class DisplayScreen(Display):
         red = 255 * (red_index ** 2)
         blue = 255 * (blue_index ** 2)
         green = 255 * (green_index ** 2)
-        self.color = (red, green, blue)
+        self.color = "Black"
 
     def update(self, temperature, weather):
         self.temp = temperature
