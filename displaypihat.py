@@ -42,7 +42,7 @@ icon_mapping = {
 
 icons = {}
 masks = {}
-WARNING_TEMP = 80
+WARNING_TEMP = 25
 pressure = 0
 
 # Load our icon files and generate masks
