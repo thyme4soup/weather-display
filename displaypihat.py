@@ -45,10 +45,6 @@ class DisplayScreen(Display):
         Display.__init__(self)
 
     def update_colors(self):
-
-        color = sys.argv[1]
-
-
         # This color mapping assumes a farenheit scale for ease
         # (in boston we can approximate temp in F as 0 to 100)
         # We start at blue, shift to green around 50, and reach full red at 100
