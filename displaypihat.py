@@ -110,7 +110,7 @@ class DisplayPiHat(Display):
         inkyphat.text((36, 12), datetime, inkyphat.WHITE, font=font)
 
         inkyphat.text((72, 34), "T", inkyphat.WHITE, font=font)
-        inkyphat.text((92, 34), u"{:.2f}°".format(temperature), inkyphat.WHITE if temperature < WARNING_TEMP else inkyphat.RED, font=font)
+        inkyphat.text((92, 34), u"{:.2f}°".format(self.temp), inkyphat.WHITE if self.temp < WARNING_TEMP else inkyphat.RED, font=font)
 
         inkyphat.text((72, 58), "Active" if self.active else "Disconn", inkyphat.WHITE, font=font)
 
