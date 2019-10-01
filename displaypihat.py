@@ -60,19 +60,10 @@ class DisplayPiHat(Display):
     def __init__(self):
         self.temp = 0
         self.weather = "Rain"
+        self.dt = 0
         Display.__init__(self)
 
     def update_colors(self):
-        # This color mapping assumes a farenheit scale for ease
-        # (in boston we can approximate temp in F as 0 to 100)
-        # We start at blue, shift to green around 50, and reach full red at 100
-        capped_temp = min(max(self.temp, 0), 100)
-        red_index = (capped_temp - 50) / 50 if capped_temp > 50 else 0
-        blue_index = (50 - capped_temp) / 50 if capped_temp < 50 else 0
-        green_index = (50 - abs(capped_temp - 50)) / 50
-        red = 255 * (red_index ** 2)
-        blue = 255 * (blue_index ** 2)
-        green = 255 * (green_index ** 2)
         self.color = "Black"
 
     def update(self, temperature, weather):
@@ -105,9 +96,9 @@ class DisplayPiHat(Display):
 
         # And now some text
 
-        datetime = time.strftime("%m/%d %H:%M")
+        dt = datetime.datetime.fromtimestamp(self.dt).strftime("%m/%d %H:%M")
 
-        inkyphat.text((36, 12), datetime, inkyphat.WHITE, font=font)
+        inkyphat.text((36, 12), dt, inkyphat.WHITE, font=font)
 
         inkyphat.text((72, 34), "T", inkyphat.WHITE, font=font)
         inkyphat.text((92, 34), u"{:.2f}°".format(self.temp), inkyphat.WHITE if self.temp < WARNING_TEMP else inkyphat.RED, font=font)

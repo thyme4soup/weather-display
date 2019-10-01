@@ -42,6 +42,9 @@ class Weather:
     def get_weather_id(self):
         return self.weather['weather'][0]["id"]
 
+    def get_dt(self):
+        return self.weather['dt']
+
     def get_weather(self):
         # https://openweathermap.org/weather-conditions
         i = self.get_weather_id()
