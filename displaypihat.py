@@ -6,6 +6,7 @@ import json
 import time
 import urllib
 import sys
+import datetime
 from PIL import Image, ImageFont
 
 try:
@@ -42,7 +43,7 @@ icon_mapping = {
 
 icons = {}
 masks = {}
-WARNING_TEMP = 25
+WARNING_TEMP = 80
 pressure = 0
 
 # Load our icon files and generate masks
@@ -73,8 +74,12 @@ class DisplayPiHat(Display):
         self.color = "Black"
 
     def update(self, temperature, weather):
-        self.temp = temperature
-        self.weather = weather
+        if temperature and weather:
+            self.temp = temperature
+            self.weather = weather
+            self.active = True
+        else:
+            self.active = False
         self.update_colors()
 
         try:
@@ -105,9 +110,8 @@ class DisplayPiHat(Display):
         inkyphat.text((72, 34), "T", inkyphat.WHITE, font=font)
         inkyphat.text((92, 34), u"{:.2f}°".format(temperature), inkyphat.WHITE if temperature < WARNING_TEMP else inkyphat.RED, font=font)
 
-        # REMOVE -- DON'T NEED PRESSURE
-        inkyphat.text((72, 58), "P", inkyphat.WHITE, font=font)
-        inkyphat.text((92, 58), "{}".format(pressure), inkyphat.WHITE, font=font)
+        inkyphat.text((72, 58), "S", inkyphat.WHITE, font=font)
+        inkyphat.text((92, 58), "Connected" if self.active else "Disconnected", inkyphat.WHITE, font=font)
 
         # Draw the current weather icon over the backdrop
         if self.weather is not None:

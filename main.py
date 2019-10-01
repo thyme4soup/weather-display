@@ -11,7 +11,10 @@ weather = Weather(update_every=60, lat=lat, lon=lon)
 display = DisplayPiHat()
 
 def updater():
-    display.update(weather.get_temperature(), weather.get_weather())
+    if weather.active:
+        display.update(weather.get_temperature(), weather.get_weather())
+    else:
+        display.update(None, None)
 
 # Display specific
 actions = Queue()

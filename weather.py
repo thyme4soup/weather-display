@@ -26,13 +26,14 @@ class Weather:
 
     def update(self, restart=True):
         try:
+            self.active = True
             self.weather = requests.get(self.url).json()
             for callback in self.callbacks:
                 callback()
             if restart:
                 threading.Timer(self.update_every, self.update).start()
         except:
-            pass
+            self.active = False
 
     def get_weather_id(self):
         return self.weather['weather'][0]["id"]
@@ -73,4 +74,3 @@ if __name__ == '__main__':
         print(weather_tracker.get_temperature())
 
     weather_tracker.add_callback(update_display)
-
