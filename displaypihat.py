@@ -58,6 +58,8 @@ font = ImageFont.truetype(inkyphat.fonts.FredokaOne, 22)
 
 class DisplayPiHat(Display):
     def __init__(self):
+        self.temp = 0
+        self.weather = "Rain"
         Display.__init__(self)
 
     def update_colors(self):
