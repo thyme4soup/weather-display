@@ -35,6 +35,10 @@ class Weather:
                 threading.Timer(self.update_every, self.update).start()
         except:
             self.active = False
+            for callback in self.callbacks:
+                callback()
+            if restart:
+                threading.Timer(self.update_every, self.update).start()
 
     def get_weather_id(self):
         return self.weather['weather'][0]["id"]
