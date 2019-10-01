@@ -27,7 +27,6 @@ class Weather:
     def update(self, restart=True):
         try:
             self.active = True
-            assert(False)
             self.weather = requests.get(self.url).json()
             for callback in self.callbacks:
                 callback()
