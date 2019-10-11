@@ -13,6 +13,7 @@ display = DisplayPiHat()
 def updater():
     if weather.active:
         display.tz = weather.get_tz()
+        display.dt = weather.get_dt()
         display.update(weather.get_temperature(), weather.get_weather())
     else:
         display.update(None, None)

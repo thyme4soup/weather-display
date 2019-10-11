@@ -62,6 +62,7 @@ class DisplayPiHat(Display):
         self.temp = 0
         self.weather = "Rain"
         self.tz = 0
+        self.dt = 0
         Display.__init__(self)
 
     def update_colors(self):
