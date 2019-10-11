@@ -98,7 +98,7 @@ class DisplayPiHat(Display):
 
         # And now some text
 
-        dt = (datetime.datetime.now() + datetime.timedelta(seconds=self.dt + 3600)).strftime("%m/%d %H:%M")
+        dt = (datetime.datetime.now() + datetime.timedelta(seconds=self.tz + 3600)).strftime("%m/%d %H:%M")
 
         inkyphat.text((36, 12), dt, inkyphat.WHITE, font=font)
 
