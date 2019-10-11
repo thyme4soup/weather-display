@@ -7,7 +7,7 @@ import requests, json
 import time
 
 lat, lon = geolocation.get_geo()
-weather = Weather(update_every=60, lat=lat, lon=lon)
+weather = Weather(update_every=30, lat=lat, lon=lon)
 display = DisplayPiHat()
 
 def updater():
