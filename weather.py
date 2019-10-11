@@ -45,6 +45,9 @@ class Weather:
     def get_dt(self):
         return self.weather['dt']
 
+    def get_dt(self):
+        return self.weather['timezone']
+
     def get_weather(self):
         # https://openweathermap.org/weather-conditions
         i = self.get_weather_id()

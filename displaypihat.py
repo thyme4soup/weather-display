@@ -7,6 +7,7 @@ import time
 import urllib
 import sys
 import datetime
+import pytz
 from PIL import Image, ImageFont
 
 try:
@@ -60,7 +61,7 @@ class DisplayPiHat(Display):
     def __init__(self):
         self.temp = 0
         self.weather = "Rain"
-        self.dt = 0
+        self.tz = 0
         Display.__init__(self)
 
     def update_colors(self):
@@ -96,7 +97,7 @@ class DisplayPiHat(Display):
 
         # And now some text
 
-        dt = datetime.datetime.fromtimestamp(self.dt).strftime("%m/%d %H:%M")
+        dt = (datetime.datetime.now() + datetime.timedelta(seconds=self.dt).strftime("%m/%d %H:%M")
 
         inkyphat.text((36, 12), dt, inkyphat.WHITE, font=font)
 
