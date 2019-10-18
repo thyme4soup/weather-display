@@ -39,7 +39,7 @@ icon_mapping = {
     "Fog" : "cloud",
     "Clear" : "sun",
     "Partly Cloudy" : "cloud",
-    "Cloudy" : "cloud"
+    "Cloudy" : "cloudy"
 }
 
 icons = {}
