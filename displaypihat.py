@@ -36,7 +36,7 @@ icon_mapping = {
     "Thunder" : "storm",
     "Rain" : "rain",
     "Snow" : "snow",
-    "Fog" : "cloud",
+    "Fog" : "cloudy",
     "Clear" : "sun",
     "Partly Cloudy" : "cloud",
     "Cloudy" : "cloudy"
