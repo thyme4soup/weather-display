@@ -8,5 +8,4 @@ def get_geo():
     geo_data = geo_request.json()
     lat = geo_data['latitude']
     lon = geo_data['longitude']
-
     return lat, lon
