@@ -75,7 +75,6 @@ class DisplayPiHat(Display):
             self.active = True
         else:
             self.active = False
-        self.weather = 'Cloudy'
         self.update_colors()
         try:
             inkyphat.set_colour(self.color)
